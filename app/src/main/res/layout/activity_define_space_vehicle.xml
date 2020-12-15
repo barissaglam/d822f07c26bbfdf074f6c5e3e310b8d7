@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="barissaglam.challenge.ui.define.DefineSpaceVehicleViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/purple_500"
+            app:layout_constraintHeight_percent="0.17"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash"
+            app:layout_constraintBottom_toBottomOf="@id/view_top_bg"
+            app:layout_constraintTop_toTopOf="@id/view_top_bg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_title_distributed_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dağıtılacak Puan: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/textView_distributed_point"
+            app:layout_constraintEnd_toStartOf="@id/textView_distributed_point"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textView_distributed_point" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_distributed_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/view_top_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textView_title_distributed_point"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/view_top_bg">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Vehicle Name"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_durability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:text='@{"Dayanıklılık (" + vm.durabilityPoint +")"}'
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_name"
+            tools:text="Dayanıklılık (7) " />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBar_durability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:max="13"
+            app:layout_constraintTop_toBottomOf="@id/textView_durability"
+            app:min="@{vm.MIN_SEEK_BAR_VALUE}"
+            tools:progress="7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:text='@{"Hız (" + vm.speedPoint +")"}'
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_durability"
+            tools:text="Hız (4) " />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBar_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:max="13"
+            app:layout_constraintTop_toBottomOf="@id/textView_speed"
+            app:min="@{vm.MIN_SEEK_BAR_VALUE}"
+            tools:progress="4" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_capacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:text='@{"Kapasite (" + vm.capacityPoint +")"}'
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_speed"
+            tools:text="Kapasite (4) " />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBar_capacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:max="13"
+            app:layout_constraintTop_toBottomOf="@id/textView_capacity"
+            app:min="@{vm.MIN_SEEK_BAR_VALUE}"
+            tools:progress="4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_save"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:strokeColor="@color/purple_500" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

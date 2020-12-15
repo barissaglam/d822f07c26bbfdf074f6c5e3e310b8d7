@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">d822f07c26bbfdf074f6c5e3e310b8d7</string>
+    <string name="menu_station">İstasyon</string>
+    <string name="menu_fav">Favoriler</string>
+    <string name="save">Kaydet</string>
+    <string name="travel">Travel</string>
+    <string name="title_fav">Favoriler</string>
+    <string name="message_damage">Aracınız çok fazla hasar aldı.</string>
+    <string name="message_ugs">Dağıtabileceğiniz yeterli uzay giysisi (UGS) kalmadı.</string>
+    <string name="message_eus">Evrensel uzay süresini (EUS) aştınız.</string>
+    <string name="title_finish_game">Oyun Bitti!</string>
+</resources>
